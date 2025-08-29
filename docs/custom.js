@@ -59,3 +59,46 @@ for (let icon of heartIcons){
 
 const callCredits = document.getElementById('total-credits');
 const callHistory = document.getElementById('call-history');
+const clearHistoryBtn = document.getElementById('clear-history-btn')
+const callButtons = document.getElementsByClassName('call-btns')
+
+let totalCallCredits = parseInt(callCredits.textContent);
+
+for (let btn of callButtons){
+    btn.addEventListener('click', function(){
+        const card = btn.closest('div.service-card');
+        const serviceTitle = card.querySelector('h2').textContent;
+        const serviceNumber = card.querySelector('h3').textContent;
+
+        if (totalCallCredits < 20 ){
+            alert("❌ Not enough credits to make a call!")
+            return;
+        }
+        alert(`📞 Calling ${serviceTitle} - ${serviceNumber}`);
+
+        totalCallCredits -= 20;
+        callCredits.textContent = totalCallCredits;
+
+        
+    const now = new Date();
+    const timeString = now.toLocaleDateString();
+
+    const historyEntry = document.createElement('div');
+    historyEntry.classList.add(
+            'mt-5','p-2.5','bg-green-50','rounded-md',
+            'flex','justify-between','items-center',
+            'shadow-md','hover:shadow-lg','hover:-translate-y-0.5',
+            'transition-all','duration-300'
+        );
+        historyEntry.innerHTML = `
+            <div>
+                <h2 class="font-HindMadurai font-bold text-sm">${serviceTitle}</h2>
+                <span class="font-HindMadurai font-semibold text-lg">${serviceNumber}</span>
+            </div>
+            <span class="font-HindMadurai font-semibold">${timeString}</span>
+        `;
+        callHistory.prepend(historyEntry);
+    });
+
+    
+}
