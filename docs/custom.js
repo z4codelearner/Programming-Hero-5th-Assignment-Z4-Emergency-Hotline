@@ -1,7 +1,7 @@
 // Favourite List Count 
 
 const favCounter = document.getElementById('fav-list-counter');
-const heartIcons = document.getElementsByClassName('cart-icon')
+const heartIcons = document.getElementsByClassName('heart-icon')
 
 /** 
     1. Clicking on the heart will change the empty ↔️ field.
@@ -63,8 +63,7 @@ for (let icon of heartIcons){
 
 const callCredits = document.getElementById('total-credits');
 const callHistory = document.getElementById('call-history');
-const clearHistoryBtn = document.getElementById('clear-history-btn')
-const callButtons = document.getElementsByClassName('call-btns')
+const callButtons = document.getElementsByClassName('call-btns');
 
 let totalCallCredits = parseInt(callCredits.textContent);
 
@@ -116,6 +115,9 @@ for (let btn of callButtons){
  */
 
 // Call History Clear Event
+
+const clearHistoryBtn = document.getElementById('clear-history-btn');
+
 clearHistoryBtn.addEventListener('click', function(){
     callHistory.innerHTML = "";
 })
@@ -131,3 +133,31 @@ clearHistoryBtn.addEventListener('click', function(){
 
     *? After clicking on the Call button, the exact time of the call will be shown in the Call History section
  */
+
+    const copyCounter = document.getElementById('copy-count');
+    const copyButtons = document.querySelectorAll('.copy-btns');
+
+    let copyCount = 0;
+
+    for (let btns of copyButtons){
+        btns.addEventListener('click', async() =>{
+            card = btns.closest('div.service-card');
+            const serviceTitle = card.querySelector('h2').textContent;
+            const serviceNumber = card.querySelector('h3').textContent;
+
+        try {
+            await navigator.clipboard.writeText(serviceNumber)
+
+            copyCount++;
+            copyCounter.textContent = copyCount;
+
+            alert(`নাম্বারটি কপি হয়েছে \n ${serviceTitle} : ${serviceNumber}`);
+
+        } catch (err) {
+
+            alert("❌ Failed to copy to clipboard.");
+            console.error(err);
+            
+        }
+        })
+    }
