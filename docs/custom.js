@@ -36,6 +36,8 @@ for (let icon of heartIcons){
     icon.addEventListener('click', function() {
         let favCount = parseInt(favCounter.innerText);
         favCounter.innerText = favCount + 1; 
+        icon.classList.remove('fa-regular')
+        icon.classList.add('fa-solid', 'text-red-600')
     });
 
 }
@@ -54,10 +56,22 @@ for (let icon of heartIcons){
         *todo: Service number
  */
 
-const callCredits = document.querySelector('header nav div:nth-child(2) span');
+
 const totalCredits = document.getElementById('total-credits');
 const callButtons = document.getElementById('call-buttons');
 const callHistory = document.getElementById('call-history');
 const clearHistoryBtn =document.getElementById('clear-history-btn');
 
-let totalCallCredits = parseInt(callCredits.textContent)
+for (btn of callButtons){
+    btn.addEventListener('click', function(e){
+        let currentCoin = parseInt(totalCredits.innerText);
+        if (currentCoin < 20){
+            alert("❌ You don't have enough coins to make a call!");
+            return;
+        }
+        totalCredits.innerText = currentCoin - 20;
+
+        let card = e.target;
+        while (card && !card)
+    })
+}
