@@ -53,3 +53,11 @@ for (let icon of heartIcons){
         *todo: Service name
         *todo: Service number
  */
+
+const callCredits = document.querySelector('header nav div:nth-child(2) span');
+const totalCredits = document.getElementById('total-credits');
+const callButtons = document.getElementById('call-buttons');
+const callHistory = document.getElementById('call-history');
+const clearHistoryBtn =document.getElementById('clear-history-btn');
+
+let totalCallCredits = parseInt(callCredits.textContent)

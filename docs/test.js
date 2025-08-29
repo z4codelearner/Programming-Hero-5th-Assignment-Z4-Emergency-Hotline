@@ -8,23 +8,23 @@
     // বর্তমান Favourite সংখ্যা
     let favCount = 0;
 
-    heartIcons.forEach(icon => {
-    icon.addEventListener('click', () => {
-        if(icon.classList.contains('fas')) {
-            // ফিল্ড থাকলে আনফিল্ডে ফেরত
-            icon.classList.remove('fas', 'text-red-600');
-            icon.classList.add('far'); 
-            favCount--;
-        } else {
-            // আনফিল্ড থাকলে ফিল্ড করে দাও
-            icon.classList.remove('far');
-            icon.classList.add('fas', 'text-red-600');
-            favCount++;
-        }
-        favCountSpan.textContent = favCount;
-    });
-});
-
+        heartIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                    if(icon.classList.contains('fas')) {
+                                // ফিল্ড থাকলে আনফিল্ডে ফেরত
+                                            icon.classList.remove('fas', 'text-red-600');
+                                                        icon.classList.add('far'); 
+                                                                    favCount--;
+                                                                            } else {
+                                                                                        // আনফিল্ড থাকলে ফিল্ড করে দাও
+                                                                                                    icon.classList.remove('far');
+                                                                                                                icon.classList.add('fas', 'text-red-600');
+                                                                                                                            favCount++;
+                                                                                                                                    }
+                                                                                                                                            favCountSpan.textContent = favCount;
+                                                                                                                                                });
+                                                                                                                                                });
+                                                                                                                                                
 
 
 /******************************************** */
