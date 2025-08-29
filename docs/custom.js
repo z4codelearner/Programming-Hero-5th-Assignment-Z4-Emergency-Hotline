@@ -3,33 +3,6 @@
 const favCounter = document.getElementById('fav-list-counter');
 const heartIcons = document.getElementsByClassName('heart-icon')
 
-/** 
-    1. Clicking on the heart will change the empty ↔️ field.
-
-    2. If it is red, it will decrease, if it is empty, it will increase.
-
-    3. The header counter will show the total number of hearts that have been favorited.
-
-    4. Like toggle system
-
-let favCount = 0;
-for (let icon of heartIcons){
-    icon.addEventListener('click', () =>{
-        if (icon.classList.contains('fas')){
-            icon.classList.remove('fas', 'text-red-600');
-            icon.classList.add('far');
-            favCount--;
-        } else {
-            icon.classList.remove('far');
-            icon.classList.add('fas', 'text-red-600');
-            favCount++;
-        }
-        favCounter.textContent = favCount;
-    });
-}
-
-*/
-
 /**
  *! Heart Icons
 
@@ -157,7 +130,7 @@ clearHistoryBtn.addEventListener('click', function(){
 
             alert("❌ Failed to copy to clipboard.");
             console.error(err);
-            
+
         }
         })
     }
