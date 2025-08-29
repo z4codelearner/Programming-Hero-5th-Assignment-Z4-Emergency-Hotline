@@ -42,7 +42,7 @@ Event Bubbling হচ্ছে ১টা event handling প্রক্রিয়
 
 Event Delegation হলো ১টা টেকনিক যেখানে parent element -এর উপর ইভেন্ট listener বাসানো হয় এবং child element -গুলোর event handle করা হয়। এইটা Event Bubbling ব্যবহার করে কাজ করে। এটি কাজে লাগে কারণ একাধিক child element -এর জন্য আলাদা listener লাগানোর প্রয়োজন পরে না, নতুন child যোগ করলেও listener কাজ করে এবং performace ভালো থাকে।
 
-## **What is Event Delegation in JavaScript? Why is it useful?** 
+## **What is the difference between preventDefault() and stopPropagation() methods?** 
 
 # **Answer to the question:**
 
