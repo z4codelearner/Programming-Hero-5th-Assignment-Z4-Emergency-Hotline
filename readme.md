@@ -1,1 +1,1 @@
-# ** Clear answers to the questions are given step by step. **
+# **Clear answers to the questions are given step by step.**
