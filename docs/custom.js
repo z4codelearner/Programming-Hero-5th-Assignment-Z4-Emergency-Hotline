@@ -57,21 +57,5 @@ for (let icon of heartIcons){
  */
 
 
-const totalCredits = document.getElementById('total-credits');
-const callButtons = document.getElementById('call-buttons');
+const callCredits = document.getElementById('total-credits');
 const callHistory = document.getElementById('call-history');
-const clearHistoryBtn =document.getElementById('clear-history-btn');
-
-for (btn of callButtons){
-    btn.addEventListener('click', function(e){
-        let currentCoin = parseInt(totalCredits.innerText);
-        if (currentCoin < 20){
-            alert("❌ You don't have enough coins to make a call!");
-            return;
-        }
-        totalCredits.innerText = currentCoin - 20;
-
-        let card = e.target;
-        while (card && !card)
-    })
-}

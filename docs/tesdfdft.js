@@ -68,48 +68,44 @@
 
 
 // হেডারের Call Credits স্প্যান নির্বাচন
-const callCreditsSpan = document.querySelector('header nav div div:nth-child(2) span');
+const callCredits = document.getElementById('total-credits');
 
 // Call History container নির্বাচন (id দিয়ে)
-const callHistoryContainer = document.getElementById('callHistoryContainer');
+const callHistory = document.getElementById('call-history');
 
 // সব কার্ডের Call বোতন নির্বাচন
-const callButtons = document.querySelectorAll('button:has(i.fa-phone)');
+const callButtons = document.getElementsByClassName('call-btns');
 
- // header এর Total Call Credits
-const totalCreditsEl = document.getElementById("totalCredits");
-
-// 
-const clearHistoryBtn = document.getElementById("clearHistoryBtn");
+const clearHistoryBtn = document.getElementById("clear-history-btn");
 
 // Total Call Credits ট্র্যাক
-let totalCallCredits = parseInt(callCreditsSpan.textContent);
+let totalCallCredits = parseInt(callCredits.textContent);
 
-callButtons.forEach(button => {
+for (let button of callButtons) {
     button.addEventListener('click', () => {
-        const card = button.closest('div.p-5');
+        const card = button.closest('div.service-card');
         const title = card.querySelector('h2').textContent;
         const number = card.querySelector('h3').textContent;
 
-        if(totalCallCredits < 10){
+        if (totalCallCredits < 20) {
             alert("❌ Not enough credits to make a call!");
             return;
         }
 
-        alert(`📞 Calling ${title} - ${number}...`);
+        alert(`📞 Calling ${title} - ${number}`);
 
-        totalCallCredits -= 10;
-        callCreditsSpan.textContent = totalCallCredits;
+        totalCallCredits -= 20;
+        callCredits.textContent = totalCallCredits;
 
         const now = new Date();
         const timeString = now.toLocaleTimeString();
 
         const historyEntry = document.createElement('div');
         historyEntry.classList.add(
-          'mt-5','p-2.5','bg-green-50','rounded-md',
-          'flex','justify-between','items-center',
-          'shadow-md','hover:shadow-lg','hover:-translate-y-0.5',
-          'transition-all','duration-300'
+            'mt-5','p-2.5','bg-green-50','rounded-md',
+            'flex','justify-between','items-center',
+            'shadow-md','hover:shadow-lg','hover:-translate-y-0.5',
+            'transition-all','duration-300'
         );
 
         historyEntry.innerHTML = `
@@ -120,13 +116,14 @@ callButtons.forEach(button => {
             <span class="font-HindMadurai font-semibold">${timeString}</span>
         `;
 
-        callHistoryContainer.prepend(historyEntry);
+        callHistory.prepend(historyEntry);
     });
-});
+}
+
 
 // Clear button event
 clearHistoryBtn.addEventListener("click", () => {
-    callHistoryContainer.innerHTML = ""; // history খালি করে দেবে
+    callHistory.innerHTML = ""; // history খালি করে দেবে
     alert("Call history cleared ✅"); // alert আসবে
 });
 /************************************************************************ */
