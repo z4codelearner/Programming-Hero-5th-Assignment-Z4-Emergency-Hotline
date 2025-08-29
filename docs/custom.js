@@ -10,7 +10,7 @@ const heartIcons = document.getElementsByClassName('cart-icon')
 
     3. The header counter will show the total number of hearts that have been favorited.
 
-    4. Toggle system
+    4. Like toggle system
 
 let favCount = 0;
 for (let icon of heartIcons){
@@ -30,7 +30,11 @@ for (let icon of heartIcons){
 
 */
 
-// Clicking on the 💗 heart icon of any card will increase the count in the Navbar
+/**
+ *! Heart Icons
+
+    *? Clicking on the 💗 heart icon of any card will increase the count in the Navbar
+ */
 
 for (let icon of heartIcons){
     icon.addEventListener('click', function() {
@@ -79,9 +83,9 @@ for (let btn of callButtons){
         totalCallCredits -= 20;
         callCredits.textContent = totalCallCredits;
 
-        
+
     const now = new Date();
-    const timeString = now.toLocaleDateString();
+    const timeString = now.toLocaleTimeString();
 
     const historyEntry = document.createElement('div');
     historyEntry.classList.add(
@@ -99,6 +103,31 @@ for (let btn of callButtons){
         `;
         callHistory.prepend(historyEntry);
     });
-
-    
 }
+
+/**
+ *! Call History Section
+
+    *? Show all called services with name & number. This will empty initially. when call button clicked it will filled dynamically.
+
+    *? A Clear History button on the right
+
+    *? Clicking this button will remove all data from call history
+ */
+
+// Call History Clear Event
+clearHistoryBtn.addEventListener('click', function(){
+    callHistory.innerHTML = "";
+})
+
+/********************************************************************************* */
+
+/**
+ *! Challenges Part
+
+    *? On clicking the Copy button, show an alert and increase the copy count
+
+    *? Hotline number will be copied on click so it can be pasted anywhere 
+
+    *? After clicking on the Call button, the exact time of the call will be shown in the Call History section
+ */
